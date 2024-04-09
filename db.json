@@ -1,0 +1,33 @@
+{
+  "sale": [
+    {
+      "title": "Подам",
+      "description": "Тойота авенсис",
+      "price": "1000000",
+      "photo": "фото",
+      "contact": "464352646",
+      "marka": "",
+      "model": "",
+      "year": "",
+      "kuzov": "",
+      "probeg": "",
+      "option": [
+        "На пневме"
+      ],
+      "id": "dd40"
+    },
+    {
+      "id": "4089",
+      "title": "Продам",
+      "description": "ВАЗ",
+      "price": "55000",
+      "photo": "Фото",
+      "contact": "8800555353",
+      "marka": "ваз",
+      "model": "20010",
+      "year": "2001",
+      "kuzov": "Седан",
+      "probeg": "300000000"
+    }
+  ]
+}
