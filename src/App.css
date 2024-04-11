@@ -1,11 +1,61 @@
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #0071e3; /* Ярко-синий цвет для акцентов, похож на тот, что использует Apple */
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --border-radius: 5px;
 }
 
-.displayUsers {
-  margin-top: 20px;
+body {
+  font-family: var(--font-stack);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  background-color: var(--background-color);
+  line-height: 1.6;
 }
 
+h2, h3 {
+  font-weight: normal;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
+
+input, select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  width: calc(100% - 24px);
+  box-sizing: border-box; /* Убедитесь, что input не выходит за рамки контейнера */
+}
+
+.displayUsers .sale-card {
+  background-color: #f5f5f7; /* Светло-серый фон, типичный для продуктов Apple */
+  border: 1px solid #e0e0e5;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.displayUsers .sale-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-container, .displayUsers {
+  max-width: 600px;
+  margin: 0 auto;
+}
