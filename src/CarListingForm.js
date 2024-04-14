@@ -9,8 +9,41 @@ const CarListingForm = () => {
     const { register, handleSubmit, formState: { errors } , reset, isValid} = useForm();
     const [isAdditionalInputsVisible, setIsAdditionalInputsVisible] = useState(false);
     const dispatch = useDispatch();
+    const fileInputRef = React.useRef();
 
     const onSubmit = (data) => {
+        const formData = new FormData();
+
+
+        const onSubmit = (data) => {
+            const formData = new FormData();
+
+            // Добавляем текстовые поля в formData
+            for (const key of Object.keys(data)) {
+                formData.append(key, data[key]);
+            }
+
+
+            // Добавляем файл в formData
+            if (fileInputRef.current && fileInputRef.current.files[0]) {
+                formData.append('photo', fileInputRef.current.files[0]);
+            } else {
+                console.log("Файл не выбран");
+            }
+            for (var pair of formData.entries()) {
+                console.log(`${pair[0]}: ${pair[1]}`);
+            }
+            // Отправляем formData
+            submitFormData(formData).then(() => {
+                dispatch(addUser(data)); // Можно добавить только после успешной отправки
+                reset();
+            });
+        };
+        console.log("Отправка данных на сервер", formData);
+        for (var pair of formData.entries()) {
+            console.log(`${pair[0]}: ${pair[1]}`);
+        }
+
         submitFormData(data);
         console.log(data);
 
@@ -49,9 +82,9 @@ const CarListingForm = () => {
             <div><input type="text" name="price" placeholder="Цена*" {...register("price",{
                 required: "Поле обязательно к заполнению"})
             }/></div>
-            <div><input type="text" name="photo" placeholder="Фото*" {...register("photo",{
-                required: "Поле обязательно к заполнению"})
-            }/></div>
+            <div>
+                <input type="file" ref={fileInputRef} name="photo" required />
+            </div>
             <div><input type="text" name="contact" placeholder="Контакты*" {...register("contact",{
                 required: "Поле обязательно к заполнению"})
             } /></div>

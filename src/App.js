@@ -42,7 +42,7 @@ function App() {
                         <h2>{sale.title}</h2>
                         <h3>Описнаие: {sale.description}</h3>
                         <h3>Цена: {sale.price}</h3>
-                        <h3>Фото: {sale.photo}</h3>
+                        <h3>Фото: {typeof sale.photo === 'string' ? sale.photo : 'Нет фото'}</h3>
                         <h3>Контакт: {sale.contact}</h3>
                         <h3>{sale.marka ? `Марка: ${sale.marka}` : ""}</h3>
                         <h3>{sale.model ? `Модель: ${sale.model}`: ""}</h3>
